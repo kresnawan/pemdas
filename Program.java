@@ -27,17 +27,23 @@ public class Program {
     }
 
     public static void mintaUlang() {
+	input.nextLine();
         System.out.println();
 	System.out.print("Apakah anda ingin mengulangi? [Y/n] : ");
-	input.nextLine();
 	
 	String input5 = input.nextLine();
-	input.nextLine();
-	if (input5 == "Y") {
+	if (input5.equals("Y") || input5.equals("")) {
+            System.out.println("Anda melanjutkan program");
+
             ulang = 1;
         } else {
+	    System.out.println("Anda menghentikan program");
+
             ulang = 0;
         }
+	
+	System.out.println();
+	
 	
     }
     
@@ -75,8 +81,6 @@ public class Program {
 	    System.out.print("Masukkan panjang : ");
             input.nextLine();
 	    double panjang = input.nextDouble();
-            
-            System.out.println();
 
             System.out.print("Masukkan lebar : ");
             input.nextLine();
@@ -95,8 +99,6 @@ public class Program {
 	    System.out.print("Masukkan alas : ");
             input.nextLine();
 	    double alas = input.nextDouble();
-            
-            System.out.println();
 
             System.out.print("Masukkan tinggi : ");
             input.nextLine();
