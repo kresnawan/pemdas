@@ -1,1 +1,2 @@
-Di tulis pake notepad, debugging powershell
+Ditulis pake notepad, debugging powershell
+
