@@ -96,8 +96,26 @@ public class Program {
             k++;
         } while (k <= 25);
 
-        System.out.printf("\n");
+        System.out.printf("\n\n");
         // System.out.printf("%f", a);
+
+        String buah[] = { "Apel", "Khuldi", "Anggur", "Nanas", "Jeruk" };
+
+        System.out.printf("%s %s\n\n", buah[1], buah[3]);
+
+        buah[1] = "Lemon";
+        buah[3] = "Sirsak";
+
+        System.out.printf("%s %s\n\n", buah[1], buah[3]);
+        for (int i = 0; i < buah.length; i++) {
+            System.out.printf("%s\n", buah[i]);
+        }
+        System.out.printf("\n\n");
+
+        int matrix[][] = {{1, 1, 1, 1}, {1, 1, 1, 1}, {1, 1, 1, 1}};
+        for (int o = 0; o < matrix.length; o++) {
+            System.out.printf("%d %d %d %d\n", matrix[o][0],matrix[o][1],matrix[o][2], matrix[o][3]);
+        }
     }
 
     public static char calculate(float a) {
