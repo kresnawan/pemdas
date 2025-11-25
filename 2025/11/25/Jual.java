@@ -2,13 +2,18 @@ import java.util.Scanner;
 
 public class Jual {
     public static Scanner input = new Scanner(System.in);
-    static String buah[] = { "Apel", "Khuldi", "Anggur", "Nanas", "Jeruk" };
-    static int harga[] = { 6000, 99999, 3000, 23000, 5000 };
+
+    static Buah apel = new Buah("Apel", 6000);
+    static Buah khuldi = new Buah("Khuldi", 99999);
+    static Buah anggur = new Buah("Anggur", 3000);
+    static Buah nanas = new Buah("Nanas", 23000);
+    static Buah jeruk = new Buah("Jeruk", 5000);
+
+    static Buah buah[] = { apel, khuldi, anggur, nanas, jeruk };
 
     static int jumlahPilihan = 0;
 
-    static String chosenBuah[] = new String[5];
-    static int chosenHarga[] = new int[5];
+    static Buah chosenBuah[] = new Buah[5];
 
     public static void main(String[] args) {
         while (true) {
@@ -41,20 +46,20 @@ public class Jual {
         System.out.printf("Masukkan opsi anda: ");
         int opsi = input.nextInt();
 
-        tambahkanBuah(buah[opsi - 1], harga[opsi - 1]);
-        System.out.printf("Buah %s berhasil ditambahkan!\n", buah[opsi - 1]);
+        tambahkanBuah(buah[opsi - 1].getNama(), buah[opsi - 1].getHarga());
+        System.out.printf("Buah %s berhasil ditambahkan!\n", buah[opsi - 1].getNama());
     }
 
     public static void tampilkanBuah() {
         System.out.printf("LIST BUAH\n");
         for (int i = 0; i < 5; i++) {
-            System.out.printf("%d - %s, %d\n", i + 1, buah[i], harga[i]);
+            System.out.printf("%d - %s, %d\n", i + 1, buah[i].getNama(), buah[i].getHarga());
         }
     }
 
     public static void tambahkanBuah(String nama, int harga) {
-        chosenBuah[jumlahPilihan] = nama;
-        chosenHarga[jumlahPilihan] = harga;
+        Buah pilihan = new Buah(nama, harga);
+        chosenBuah[jumlahPilihan] = pilihan;
 
         jumlahPilihan++;
     }
@@ -62,13 +67,13 @@ public class Jual {
     public static void tampilkanPilihan() {
         System.out.printf("LIST PILIHAN ANDA: %d/5\n", jumlahPilihan);
         for (int i = 0; i < jumlahPilihan; i++) {
-            System.out.printf("%d - %s, %d\n", i + 1, chosenBuah[i], chosenHarga[i]);
+            System.out.printf("%d - %s, %d\n", i + 1, chosenBuah[i].getNama(), chosenBuah[i].getHarga());
         }
 
         int totalHarga = 0;
 
         for (int j = 0; j < jumlahPilihan; j++) {
-            totalHarga += chosenHarga[j];
+            totalHarga += chosenBuah[j].getHarga();
         }
 
         System.out.printf("Total harga: %d\n", totalHarga);
